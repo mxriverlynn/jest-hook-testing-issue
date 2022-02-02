@@ -10,24 +10,12 @@ const useSectionDisplayRules = () => {
   useEffect(() => {
     MigrationActions.fetch().then(() => {
       setLoading(false);
-      console.log("RESOLVED. LOADING?", loading);
     });
   }, []);
 
   const canShow = section_key => {
-    if (loading) {
-      return false;
-    }
-
+    if (loading) { return false; }
     return true;
-
-    // if (section_key !== 'section_schedule_your_intro_call') {
-    //   return true;
-    // }
-
-    // if (migrationData.previous_payroll_provider === 'QuickBooks Online') {
-    //   return false;
-    // }
   };
 
   return { canShow, loading };
